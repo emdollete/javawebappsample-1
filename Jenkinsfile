@@ -13,6 +13,9 @@ node {
     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
     sh 'docker build -f ./Dockerfile -t emdollete/calculator:latestcalc .'
     sh 'docker push emdollete/calculator:latestcalc'
+	}
+	}
+	}
  stage("Publish to Azure") {
        steps {
        azureWebAppPublish appName: "javasample-cont",
@@ -23,3 +26,4 @@ node {
        sourceDirectory: "."
            }
    }
+}
