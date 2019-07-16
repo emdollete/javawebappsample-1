@@ -9,7 +9,7 @@ node {
   
   stage('deploy') {
     def resourceGroup = 'javadcoker-RG'
-    def webAppName = 'javaapp-sample-cont'
+    def webAppName = 'javasample-cont'
     def registryServer = 'javaappcont.azurecr.io'
     def imageTag = sh script: 'git describe | tr -d "\n"', returnStdout: true
     def imageName = "$registryServer/calculator"
