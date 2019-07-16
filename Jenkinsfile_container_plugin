@@ -10,9 +10,9 @@ node {
   stage('deploy') {
     def resourceGroup = 'javadcoker-RG'
     def webAppName = 'javasample-cont'
-    def registryServer = 'javaappcont.azurecr.io'
+    def registryServer = 'https://cloud.docker.com/repository/docker/emdollete/calculator'
     def imageTag = sh script: 'git describe | tr -d "\n"', returnStdout: true
     def imageName = "$registryServer/calculator"
-    azureWebAppPublish azureCredentialsId: 'springbootapp-sp', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
+    azureWebAppPublish azureCredentialsId: 'springbootapp-sp', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'dockerhub-test', url: "http://$registryServer"]
   }
 }
