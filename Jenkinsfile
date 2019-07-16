@@ -7,7 +7,6 @@ node {
     sh 'mvn clean package'
   }
  stage('Docker Build and Push') {
-    agent {label 'docker'}
 	steps {
     withCredentials([usernamePassword(credentialsId: 'dockerhub-test', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
