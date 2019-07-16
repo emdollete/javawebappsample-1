@@ -18,7 +18,7 @@ node {
 	}
  stage("Publish to Azure") {
        steps {
-       azureWebAppPublish appName: "javasample-cont",
+       azureWebAppPublish appName: "javaapp-dockerhub",
        azureCredentialsId: "springbootapp-sp",
        publishType: "file",
        filePath: "**/*.*",
